@@ -16,8 +16,22 @@ class Pen:
                 self.texts_written.append(user_text)
                 self.score += len(user_text.split())
                 self.append_to_file(user_text)
+                self.random_event()
             else:
                 break
+     def random_event(self):
+        
+        event = random.choice(["Ink leakage", "ink spill", "Good handwriting"])
+        
+        if event == "Ink leakage":
+            print("Oh no! It started leaking and smudged your writing!")
+            self.score -= 5  
+        elif event == "ink spill":
+            print("Oops! You accidentally spilled ink!")
+            self.ink_level -= 10  
+        elif event == "Good handwriting":
+            print("Wow! Good handwriting!")
+            self.score += 10           
 
     def get_valid_ink_color(self):
         while True:
