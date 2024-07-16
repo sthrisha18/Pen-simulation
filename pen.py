@@ -1,3 +1,5 @@
+import random
+
 class Pen:
     def __init__(self, pen_type, ink_level=50):
         self.pen_type = pen_type
@@ -19,10 +21,10 @@ class Pen:
                 self.random_event()
             else:
                 break
-     def random_event(self):
-        
+
+    def random_event(self):
         event = random.choice(["Ink leakage", "ink spill", "Good handwriting"])
-        
+
         if event == "Ink leakage":
             print("Oh no! It started leaking and smudged your writing!")
             self.score -= 5  
@@ -88,4 +90,4 @@ class Pen:
     def get_ink_needed_multiplier(self):
         nib_multipliers = {'fine': 1, 'medium': 2, 'bold': 3}
         cartridge_multipliers = {'standard': 2, 'large': 3}
-        return nib_multipliers.get(self.nib_type) * cartridge_multipliers.get(self.cartridge_type)
+        return nib_multipliers.get(self.nib_type, 1) * cartridge_multipliers.get(self.cartridge_type, 1)
