@@ -75,3 +75,8 @@ class Pen:
         nib_multipliers = {'fine': 1, 'medium': 2, 'bold': 3}
         cartridge_multipliers = {'standard': 2, 'large': 3}
         return nib_multipliers.get(self.nib_type) * cartridge_multipliers.get(self.cartridge_type)
+    def check_status(self):
+        print(f"Pen Type: {self.pen_type}")
+        print(f"Ink Level: {self.ink_level}")
+        print(f"Texts Written: {self.texts_written}")
+        print(f"Score: {self.score}")
