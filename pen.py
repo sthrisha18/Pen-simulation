@@ -23,7 +23,7 @@ class Pen:
                 break
 
     def random_event(self):
-        event = random.choice(["Ink leakage", "ink spill", "Good handwriting"])
+        event = random.choice(["Ink leakage", "ink spill", "Super nib"])
 
         if event == "Ink leakage":
             print("Oh no! It started leaking and smudged your writing!")
@@ -31,9 +31,10 @@ class Pen:
         elif event == "ink spill":
             print("Oops! You accidentally spilled ink!")
             self.ink_level -= 10  
-        elif event == "Good handwriting":
-            print("Wow! Good handwriting!")
-            self.score += 10           
+        elif event == "Super nib":
+            print("Wow! You found a Super nib!")
+            self.score += 10
+            self.ink_level += 10
 
     def get_valid_ink_color(self):
         while True:
