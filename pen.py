@@ -1,3 +1,5 @@
+import random
+
 class Pen:
     def __init__(self, pen_type, ink_level=50):
         self.pen_type = pen_type
@@ -16,8 +18,23 @@ class Pen:
                 self.texts_written.append(user_text)
                 self.score += len(user_text.split())
                 self.append_to_file(user_text)
+                self.random_event()
             else:
                 break
+
+    def random_event(self):
+        event = random.choice(["Ink leakage", "ink spill", "Super nib"])
+
+        if event == "Ink leakage":
+            print("Oh no! It started leaking and smudged your writing!")
+            self.score -= 5  
+        elif event == "ink spill":
+            print("Oops! You accidentally spilled ink!")
+            self.ink_level -= 10  
+        elif event == "Super nib":
+            print("Wow! You found a Super nib!")
+            self.score += 10
+            self.ink_level += 10
 
     def get_valid_ink_color(self):
         while True:
@@ -74,4 +91,4 @@ class Pen:
     def get_ink_needed_multiplier(self):
         nib_multipliers = {'fine': 1, 'medium': 2, 'bold': 3}
         cartridge_multipliers = {'standard': 2, 'large': 3}
-        return nib_multipliers.get(self.nib_type) * cartridge_multipliers.get(self.cartridge_type)
+        return nib_multipliers.get(self.nib_type, 1) * cartridge_multipliers.get(self.cartridge_type, 1)
