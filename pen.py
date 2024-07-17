@@ -1,3 +1,4 @@
+import random #Importing random
 class Pen:
     def __init__(self, pen_type, ink_level=50):
         self.pen_type = pen_type
