@@ -70,6 +70,15 @@ class Pen:
                 print(file.read())
         except FileNotFoundError:
             print("File not found.")
+            
+     def count_words_in_file(self):
+        try:
+            with open(self.file_name, 'r') as file:
+                text = file.read()
+                word_count = len(text.split())
+                print(f"Total words in '{self.file_name}': {word_count}")
+        except FileNotFoundError:
+            print("File not found.")
 
     def get_ink_needed_multiplier(self):
         nib_multipliers = {'fine': 1, 'medium': 2, 'bold': 3}
